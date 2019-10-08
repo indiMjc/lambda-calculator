@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import OperatorButton from "./OperatorButton";
 import { operators } from "../../../data";
 
 //import any components needed
@@ -10,6 +11,9 @@ const Operators = () => {
   const [operatorState, setOperatorState] = useState(operators);
   return (
     <div>
+      {operatorState.map((btn, i) => (
+        <OperatorButton key={i} button={btn} />
+      ))}
       {/* STEP 3 - Use .map() to iterate over your array data and return a button
        component matching the name on the provided file. Pass
        it any props needed by the child component*/}
