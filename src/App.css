@@ -46,8 +46,6 @@ button {
   background: rgb(4, 131, 163);
 }
 .specials {
-  /* display: flex;
-  justify-content: space-between; */
   padding-top: 15px;
   width: 300px;
   transform: translateX(140px);
@@ -55,10 +53,6 @@ button {
 .specials button {
   background: rgb(0, 104, 201);
 }
-/* .numbers {
-  display: flex;
-  justify-content: space-between;
-} */
 .numbers button {
   background: rgb(0, 68, 131);
 }

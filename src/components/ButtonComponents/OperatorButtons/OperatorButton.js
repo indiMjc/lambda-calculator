@@ -2,9 +2,13 @@ import React from "react";
 
 const OperatorButton = props => {
   return (
-    <>
-      <button>{props.button.char}</button>
-    </>
+    <button
+      onClick={() => {
+        props.setDisplayState(props.button.char);
+      }}
+    >
+      {props.button.char}
+    </button>
   );
 };
 

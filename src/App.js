@@ -3,8 +3,8 @@ import Display from "./components/DisplayComponents/Display";
 import Specials from "./components/ButtonComponents/SpecialButtons/Specials";
 import Operators from "./components/ButtonComponents/OperatorButtons/Operators";
 import Numbers from "./components/ButtonComponents/NumberButtons/Numbers";
-import "./App.css";
 import Logo from "./components/DisplayComponents/Logo";
+import "./App.css";
 
 function App() {
   const [displayState, setDisplayState] = useState(0);
@@ -13,8 +13,8 @@ function App() {
       <Logo />
       <div className="App">
         <Display displayState={displayState} />
-        <Specials />
-        <Operators />
+        <Specials setDisplayState={setDisplayState} />
+        <Operators setDisplayState={setDisplayState} />
         <Numbers setDisplayState={setDisplayState} />
       </div>
     </div>

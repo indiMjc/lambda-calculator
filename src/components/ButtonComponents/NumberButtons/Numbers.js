@@ -9,7 +9,6 @@ const Numbers = props => {
         <NumberButton
           key={i}
           button={btn}
-          value={props.value}
           setDisplayState={props.setDisplayState}
         />
       ))}
