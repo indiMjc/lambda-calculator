@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import SpecialButton from "./SpecialButton";
 import { specials } from "../../../data";
 
 const Specials = () => {
-  const [specialState, setSpecialState] = useState(specials);
   return (
     <div className="specials">
-      {specialState.map((btn, i) => (
+      {specials.map((btn, i) => (
         <SpecialButton key={i} button={btn} />
       ))}
     </div>

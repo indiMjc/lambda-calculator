@@ -7,27 +7,15 @@ import "./App.css";
 import Logo from "./components/DisplayComponents/Logo";
 
 function App() {
-  const [currentVal, inputVal, setCurrentVal] = useState(0);
-  const divide = function() {
-    setCurrentVal(currentVal => currentVal / inputVal);
-  };
-  const multiply = function() {
-    setCurrentVal(currentVal => currentVal * inputVal);
-  };
-  const subtract = function() {
-    setCurrentVal(currentVal => currentVal - inputVal);
-  };
-  const add = function() {
-    setCurrentVal(currentVal => currentVal + inputVal);
-  };
+  const [displayState, setDisplayState] = useState(0);
   return (
     <div className="container">
       <Logo />
-      <Display displayVal={currentVal} />
       <div className="App">
+        <Display displayState={displayState} />
         <Specials />
         <Operators />
-        <Numbers operations={[divide, multiply, subtract, add]} />
+        <Numbers setDisplayState={setDisplayState} />
       </div>
     </div>
   );
