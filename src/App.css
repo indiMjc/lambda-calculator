@@ -1,22 +1,80 @@
 .container {
-    background-color: #c00025;
-    width: 100%;
-    max-width: 550px;
-    border-radius: 15px;
-    border: 2px solid grey;
-    padding-bottom: 25px;
+  background-color: #c00025;
+  width: 100%;
+  max-width: 550px;
+  border-radius: 15px;
+  border: 2px solid grey;
+  padding-bottom: 25px;
+  padding: 10px 10px;
 }
+
 .display {
-    margin-top: 25px;
-    height: 100px;
-    width: 450px;
-    border-radius: 50px;
-    color: white;
-    background-color: #322c2d;
-    box-shadow: 1px 1px #322c2d;
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    padding-right: 8%;
-    font-size: 5.0rem;
-  }
+  margin-top: 25px;
+  height: 100px;
+  width: 505px;
+  border-radius: 50px;
+  color: white;
+  background-color: #322c2d;
+  box-shadow: 1px 1px #322c2d;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-right: 8%;
+  font-size: 5rem;
+}
+.App {
+  height: 500px;
+}
+button {
+  font-size: 20px;
+  color: white;
+  border-radius: 50px;
+  width: 70px;
+  height: 70px;
+  border: none;
+  box-shadow: -1px 2px 2px rgba(0, 0, 0, 0.733);
+}
+.operator-btns {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 390px;
+  transform: translate(-125px, -70px);
+}
+.operator-btns button {
+  background: rgb(4, 131, 163);
+}
+.specials {
+  padding-top: 15px;
+  width: 300px;
+  transform: translateX(140px);
+}
+.specials button {
+  background: rgb(0, 104, 201);
+}
+.numbers button {
+  background: rgb(0, 68, 131);
+}
+.numbers button:nth-child(-n + 3) {
+  transform: translate(140px, -380px);
+}
+.numbers button:nth-child(4),
+.numbers button:nth-child(5),
+.numbers button:nth-child(6) {
+  transform: translate(-70px, -300px);
+}
+.numbers button:nth-child(7) {
+  transform: translate(-138px, -220px);
+}
+.numbers button:nth-child(8),
+.numbers button:nth-child(9) {
+  transform: translate(142px, -290px);
+}
+.numbers button:nth-child(10),
+.numbers button:nth-child(11) {
+  transform: translate(3px, -210px);
+}
+.numbers button:nth-child(11) {
+  min-width: 140px;
+}
