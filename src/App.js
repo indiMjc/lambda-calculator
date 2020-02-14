@@ -15,14 +15,13 @@ import Logo from './components/Logo';
 
 const App = () => {
 	const [calcState, setCalcState] = useState('');
+	// console.log(' : App -> calcState', calcState);
 
 	const setCalculation = char => {
-		if (!Number(char)) {
-			setCalcState(`${calcState} ${char} `);
-		} else {
-			setCalcState(`${calcState}${char}`);
-		}
+		setCalcState(`${calcState}${char}`);
 	};
+
+	const calculate = () => setCalcState(eval(calcState));
 	// console.log(' : App -> calcState', calcState);
 	// STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
 	// Once the state hooks are in place write some functions to hold data in state and update that data depending on what it needs to be doing
@@ -37,7 +36,13 @@ const App = () => {
 				<Display calcState={calcState} />
 				<Numbers numbers={numArr} setCalc={setCalculation} />
 				<Specials specials={specArr} setCalc={setCalculation} />
-				<Operators operators={opArr} setCalc={setCalculation} />
+				<Operators
+					operators={opArr}
+					setCalc={setCalculation}
+					setCalcState={setCalcState}
+					calcState={calcState}
+					calculate={calculate}
+				/>
 				{/* STEP 4 - Render your components here and be sure to properly import/export all files */}
 			</div>
 		</div>

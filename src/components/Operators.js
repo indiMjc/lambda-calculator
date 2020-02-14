@@ -1,18 +1,18 @@
 import React from 'react';
 
-const Operators = ({ operators, setCalc }) => {
+const Operators = ({ operators, calcState, setCalc, setCalcState }) => {
+	const calculate = () => setCalcState(eval(calcState));
+
+	const clear = () => setCalcState('');
 	return (
 		<div>
+			<button onClick={clear}>C</button>
 			{operators.map(operator => (
-				<button
-					key={operator.char}
-					name={operator.value}
-					value={operator.char}
-					onClick={e => setCalc(e.target.value)}
-				>
-					{operator.char}
+				<button key={operator} value={operator} onClick={e => setCalc(e.target.value)}>
+					{operator}
 				</button>
 			))}
+			<button onClick={calculate}>=</button>
 		</div>
 	);
 };
