@@ -1,18 +1,22 @@
 import React from 'react';
 
-import { specArr } from '../../../data';
-//import any components needed
-
-//Import your array data to from the provided data file
-
-const Specials = () => {
-	// STEP 2 - add the imported data to state
-
+const Specials = ({ specials, calc, setCalc }) => {
+	const onClick = e => {
+		const { name } = e.target;
+		setCalc({
+			screen: name,
+			calculation: `${calc.calculation} ${name}`
+		});
+	};
 	return (
 		<div>
-			{/* STEP 3 - Use .map() to iterate over your array data and return a button
-       component matching the name on the provided file. Pass
-       it any props needed by the child component*/}
+			{specials.map(special => (
+				<button key={special} name={special} onClick={onClick}>
+					{special}
+				</button>
+			))}
 		</div>
 	);
 };
+
+export default Specials;

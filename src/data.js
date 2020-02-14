@@ -23,4 +23,4 @@ export const opArr = [
 	}
 ];
 
-export const specArr = ['C', '+/-', '%'];
+export const specArr = ['C', '+', '/', '-', '%'];

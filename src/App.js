@@ -1,14 +1,23 @@
-import React from 'react';
-import Numbers from './components/ButtonComponents/NumberButtons/Numbers';
+import React, { useState } from 'react';
+import Numbers from './components/Numbers';
+import Specials from './components/Specials';
+import Operators from './components/Operators';
+
+import { numArr, specArr, opArr } from './data';
 
 import './App.css';
 // STEP 4 - import the button and display components
 // Don't forget to import any extra css/scss files you build into the correct component
 
 // Logo has already been provided for you. Do the same for the remaining components
-import Logo from './components/DisplayComponents/Logo';
+import Logo from './components/Logo';
 
-function App() {
+const App = () => {
+	const [calcState, setCalcState] = useState({
+		screen: null,
+		calculation: ''
+	});
+	console.log(' : App -> calcState', calcState);
 	// STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
 	// Once the state hooks are in place write some functions to hold data in state and update that data depending on what it needs to be doing
 	// Your functions should accept a parameter of the the item data being displayed to the DOM (ie - should recieve 5 if the user clicks on
@@ -19,11 +28,13 @@ function App() {
 		<div className='container'>
 			<Logo />
 			<div className='App'>
-				<Numbers />
+				<Numbers numbers={numArr} calc={calcState} setCalc={setCalcState} />
+				<Specials specials={specArr} calc={calcState} setCalc={setCalcState} />
+				<Operators operators={opArr} calc={calcState} setCalc={setCalcState} />
 				{/* STEP 4 - Render your components here and be sure to properly import/export all files */}
 			</div>
 		</div>
 	);
-}
+};
 
 export default App;

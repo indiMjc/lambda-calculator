@@ -1,20 +1,40 @@
-import React, { useState } from 'react';
-
-//import any components needed
-
-import { numArr } from '../../../data';
+import React, { useEffect } from 'react';
 
 //Import your array data to from the provided data file
 
-const Numbers = () => {
-	const [numbers, setNumbers] = useState(numArr);
+const Numbers = ({ numbers, calc, setCalc }) => {
+	const onClick = e => {
+		const { name } = e.target;
+		setCalc({
+			screen: `${name}`,
+			calculation: `${calc.calculation}${name}`
+		});
+
+		// const checkTruthy = () => {
+		// 	if (calc.screen && typeof calc.screen[0] === 'string') {
+		// 		return 'not number';
+		// 	} else {
+		// 		return 'number';
+		// 	}
+		// };
+
+		console.log(typeof calc.screen);
+	};
+	// useEffect(() => {
+	// 	if (calc.screen && typeof calc.screen[0] === 'string') {
+	// 		console.log('effect');
+	// 		setCalc({
+	// 			screen: `${calc.screen.substr(1)}`,
+	// 			calculation: `${calc.calculation}`
+	// 		});
+	// 	}
+	// }, [onClick]);
 	return (
 		<div>
-			{/* STEP 3 - Use .map() to iterate over your array data and return a button
-       component matching the name on the provided file. Pass
-       it any props needed by the child component*/}
-			{numbers.map(i => (
-				<button>{i}</button>
+			{numbers.map(num => (
+				<button key={num} name={num} onClick={onClick}>
+					{num}
+				</button>
 			))}
 		</div>
 	);
