@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Numbers from './components/Numbers';
 import Specials from './components/Specials';
 import Operators from './components/Operators';
+import Display from './components/Display';
 
 import { numArr, specArr, opArr } from './data';
 
@@ -13,11 +14,16 @@ import './App.css';
 import Logo from './components/Logo';
 
 const App = () => {
-	const [calcState, setCalcState] = useState({
-		screen: null,
-		calculation: ''
-	});
-	console.log(' : App -> calcState', calcState);
+	const [calcState, setCalcState] = useState('');
+
+	const setCalculation = char => {
+		if (!Number(char)) {
+			setCalcState(`${calcState} ${char} `);
+		} else {
+			setCalcState(`${calcState}${char}`);
+		}
+	};
+	// console.log(' : App -> calcState', calcState);
 	// STEP 5 - After you get the components displaying using the provided data file, write your state hooks here.
 	// Once the state hooks are in place write some functions to hold data in state and update that data depending on what it needs to be doing
 	// Your functions should accept a parameter of the the item data being displayed to the DOM (ie - should recieve 5 if the user clicks on
@@ -28,9 +34,10 @@ const App = () => {
 		<div className='container'>
 			<Logo />
 			<div className='App'>
-				<Numbers numbers={numArr} calc={calcState} setCalc={setCalcState} />
-				<Specials specials={specArr} calc={calcState} setCalc={setCalcState} />
-				<Operators operators={opArr} calc={calcState} setCalc={setCalcState} />
+				<Display calcState={calcState} />
+				<Numbers numbers={numArr} setCalc={setCalculation} />
+				<Specials specials={specArr} setCalc={setCalculation} />
+				<Operators operators={opArr} setCalc={setCalculation} />
 				{/* STEP 4 - Render your components here and be sure to properly import/export all files */}
 			</div>
 		</div>

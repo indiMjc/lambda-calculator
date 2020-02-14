@@ -1,17 +1,10 @@
 import React from 'react';
 
-const Specials = ({ specials, calc, setCalc }) => {
-	const onClick = e => {
-		const { name } = e.target;
-		setCalc({
-			screen: name,
-			calculation: `${calc.calculation} ${name}`
-		});
-	};
+const Specials = ({ specials, setCalc }) => {
 	return (
 		<div>
 			{specials.map(special => (
-				<button key={special} name={special} onClick={onClick}>
+				<button key={special} name={special} onClick={e => setCalc(e.target.name)}>
 					{special}
 				</button>
 			))}
